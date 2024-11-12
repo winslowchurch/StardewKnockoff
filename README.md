@@ -1,8 +1,9 @@
-# GreenValley
-Green Valley is Stardew Valley inspired pixelated 2D Python game where player can go around map, perform farming and foraging, a day and night cycle, weather effects and a merchant.
+# Stardew Knockoff
+This is a pixelated 2D python game with the same gameplay as Stardew Valley
 
+# How to run
+- Make sure pygame, pytmx are installed
+- cd into code, make a virtual environment, and run main.py
+- Use WASD or arrow keys to navigate, tab and e keys to change selections, and click and right click to use tool / seed
 
-Green Valley is developed using: Pygame and Tiled.
- 
-
-[![Watch the video](https://github.com/Ahmet1Bilici/GreenValley/blob/main/gameplay/greenvalley_gif.gif)](https://youtu.be/mdGVWea07J0)
+# Demo
