@@ -6,7 +6,7 @@ class Game:
 	def __init__(self):
 		pygame.init()
 		self.screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
-		pygame.display.set_caption('Green Valley')
+		pygame.display.set_caption('Stardew Knockoff')
 		self.clock = pygame.time.Clock()
 		self.level = Level()
 
