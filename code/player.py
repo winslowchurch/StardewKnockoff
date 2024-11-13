@@ -87,10 +87,12 @@ class Player(pygame.sprite.Sprite):
             self.seed_inventory[self.selected_seed] -= 1
 
     def import_assets(self):
-        self.animations = {'up': [], 'down': [], 'left': [], 'right': [],
-                           'right_idle': [], 'left_idle': [], 'up_idle': [], 'down_idle': [],
-                           'right_hoe': [], 'left_hoe': [], 'up_hoe': [], 'down_hoe': [],
-                           'right_water': [], 'left_water': [], 'up_water': [], 'down_water': []}
+        self.animations = {
+            'up': [], 'down': [], 'left': [], 'right': [],
+            'up_idle': [], 'down_idle': [], 'left_idle': [], 'right_idle': [],
+            'up_action': [], 'down_action': [], 'left_action': [], 'right_action': []
+        }
+    
         for animation in self.animations.keys():
             full_path = '../graphics/character/' + animation
             self.animations[animation] = import_folder(full_path)
@@ -163,13 +165,13 @@ class Player(pygame.sprite.Sprite):
                         self.sleep = True
 
     def get_status(self):
-        # Idle
-        if self.direction.magnitude() == 0:
-            self.status = self.status.split('_')[0] + '_idle'
-
-        # Tool use
+        # Check if tool use is active first, as it should take priority
         if self.timers['tool use'].active:
-            self.status = self.status.split('_')[0] + '_' + self.selected_tool
+            self.status = self.status.split('_')[0] + '_action'
+        # Idle if no movement
+        elif self.direction.magnitude() == 0:
+            self.status = self.status.split('_')[0] + '_idle'
+        
 
     def update_timers(self):
         for timer in self.timers.values():
