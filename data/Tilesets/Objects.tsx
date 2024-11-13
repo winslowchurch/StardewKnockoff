@@ -8,10 +8,10 @@
   <image width="56" height="68" source="../../graphics/objects/girlfriend.png"/>
  </tile>
  <tile id="4">
-  <image width="56" height="112" source="../../graphics/objects/sunflower.png"/>
+  <image width="56" height="112" source="../../graphics/objects/bigflower.png"/>
  </tile>
  <tile id="7">
-  <image width="44" height="48" source="../../graphics/objects/flower.png"/>
+  <image width="44" height="48" source="../../graphics/objects/littleflower.png"/>
  </tile>
  <tile id="8">
   <image width="40" height="44" source="../../graphics/objects/mushroom.png"/>
