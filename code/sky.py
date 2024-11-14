@@ -11,7 +11,6 @@ class Sky:
         self.start_color = [255,255,255]
         self.end_color = [35,100,190]
 
-
     def display(self, dt):
         for index, value in enumerate(self.end_color):
             if self.start_color[index] > value:
@@ -22,7 +21,6 @@ class Sky:
 
 class Drop(Generic):
     def __init__(self, surf, pos, moving, groups, z):
-
         # general setup
         super().__init__(pos,surf,groups,z)
         self.lifetime = randint(400, 500)
@@ -35,7 +33,6 @@ class Drop(Generic):
             self.direction = pygame.math.Vector2(-2,4)
             self.speed = randint(200,500)
 
-
     def update(self, dt):
         # movement
         if self.moving:
@@ -45,8 +42,6 @@ class Drop(Generic):
         # timer
         if pygame.time.get_ticks() - self.start_time >= self.lifetime:
             self.kill()
-
-
 
 class Rain:
     def __init__(self, all_sprites):
@@ -70,7 +65,6 @@ class Rain:
             moving=True,
             groups=self.all_sprites,
             z=LAYERS['rain drops'])
-
 
     def update(self):
         self.create_floor()

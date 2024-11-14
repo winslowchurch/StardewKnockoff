@@ -27,7 +27,7 @@ class Plant(pygame.sprite.Sprite):
 
         # setup
         self.plant_type = plant_type
-        self.frames = import_folder(f'../graphics/fruit/{plant_type}')
+        self.frames = import_folder(f'../graphics/tomato')
         self.soil = soil
         self.check_watered = check_watered
 
@@ -39,7 +39,7 @@ class Plant(pygame.sprite.Sprite):
 
         # sprite setup
         self.image = self.frames[int(len(self.frames) - self.age - 1)]
-        self.y_offset = -16 if plant_type == 'corn' else -8
+        self.y_offset = -8
         self.rect = self.image.get_rect(midbottom=soil.rect.midbottom + pygame.math.Vector2(0, self.y_offset))
         self.z = LAYERS['ground plant']
 
@@ -58,7 +58,6 @@ class Plant(pygame.sprite.Sprite):
 
             self.image = self.frames[int(len(self.frames) - self.age - 1)]
             self.rect = self.image.get_rect(midbottom = self.soil.rect.midbottom + pygame.math.Vector2(0,self.y_offset))
-
 
 class SoilLayer:
     def __init__(self, all_sprites, collision_sprites):
@@ -151,7 +150,6 @@ class SoilLayer:
                     groups = [self.all_sprites, self.water_sprites])
 
     def remove_water(self):
-
         # destroy all water sprites
         for sprite in self.water_sprites.sprites():
             sprite.kill()

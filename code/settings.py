@@ -26,27 +26,10 @@ LAYERS = {
 	'ground plant': 6,
 	'main': 7,
 	'house top': 8,
-	'fruit': 9,
+	'tomato': 9,
 	'rain drops': 10
 }
 
-APPLE_POS = {
-	'Small': [(18,17), (30,37), (12,50), (30,45), (20,30), (30,10)],
-	'Large': [(30,24), (60,65), (50,50), (16,40),(45,50), (42,70)]
-}
-
 GROW_SPEED = {
-	'corn': 1,
 	'tomato': 0.7
-}
-
-SALE_PRICES = {
-	'wood': 4,
-	'apple': 2,
-	'corn': 10,
-	'tomato': 20
-}
-PURCHASE_PRICES = {
-	'corn': 4,
-	'tomato': 5
 }

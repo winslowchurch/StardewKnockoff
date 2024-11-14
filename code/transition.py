@@ -1,10 +1,8 @@
 import pygame
 from settings import *
 
-
 class Transition:
     def __init__(self, reset, player):
-
         # Setup
         self.display_surface = pygame.display.get_surface()
         self.reset = reset
@@ -16,7 +14,6 @@ class Transition:
         self.speed = -2
 
     def play(self):
-
         self.color += self.speed
         if self.color <= 0:
             self.speed *= -1

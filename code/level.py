@@ -106,13 +106,6 @@ class Level:
 		if self.raining:
 			self.soil_layer.water_all()
 
-		# reset apples on the trees
-		for tree in self.tree_sprites.sprites():
-			for apple in tree.apple_sprites.sprites():
-				# Before re-creating fruits on map first remove all existing fruits
-				apple.kill()
-			tree.create_fruit()
-
 		# reset daylight
 		self.sky.start_color = [255,255,255]
 

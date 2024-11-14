@@ -42,22 +42,17 @@ class Player(pygame.sprite.Sprite):
         self.selected_tool = self.tools[self.tool_index]
 
         # seeds
-        self.seeds = ['corn', 'tomato']
+        self.seeds = ['tomato']
         self.seed_index = 0
         self.selected_seed = self.seeds[self.seed_index]
 
         # inventory
         self.item_inventory = {
-            'wood':   0,
-            'apple':  0,
-            'corn':   0,
             'tomato': 0
         }
         self.seed_inventory = {
-            'corn': 5,
-            'tomato': 5
+            'tomato': 10
         }
-        self.money = 200
 
         # interaction
         self.tree_sprites = tree_sprites
@@ -67,7 +62,7 @@ class Player(pygame.sprite.Sprite):
 
         # sound
         self.watering = pygame.mixer.Sound('../audio/water.wav')
-        self.watering.set_volume(0.2)
+        self.watering.set_volume(0.3)
 
     def use_tool(self):
         if self.selected_tool == 'hoe':
@@ -77,7 +72,6 @@ class Player(pygame.sprite.Sprite):
             self.watering.play()
 
     def get_target_pos(self):
-
         self.target_pos = self.rect.center + PLAYER_TOOL_OFFSET[self.status.split('_')[0]]
 
     def use_seed(self):
@@ -147,12 +141,6 @@ class Player(pygame.sprite.Sprite):
                 self.timers['seed use'].activate()
                 self.direction = pygame.math.Vector2()
                 self.frame_index = 0
-
-            # Change seed
-            if keys[pygame.K_e] and not self.timers['seed switch'].active:
-                self.timers['seed switch'].activate()
-                self.seed_index = (self.seed_index + 1) % len(self.seeds)
-                self.selected_seed = self.seeds[self.seed_index]
 
             if keys[pygame.K_RETURN]:
                 collided_interaction_sprite = pygame.sprite.spritecollide(self,self.interaction,False)
