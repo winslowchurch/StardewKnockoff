@@ -4,7 +4,7 @@ from support import *
 from timer import Timer
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, pos, group, collision_sprites, tree_sprites, interaction, soil_layer, toggle_shop):
+    def __init__(self, pos, group, collision_sprites, tree_sprites, interaction, soil_layer):
         super().__init__(group)
 
         self.import_assets()
@@ -64,7 +64,6 @@ class Player(pygame.sprite.Sprite):
         self.interaction = interaction
         self.sleep = False
         self.soil_layer = soil_layer
-        self.toggle_shop = toggle_shop
 
         # sound
         self.watering = pygame.mixer.Sound('../audio/water.wav')
@@ -158,11 +157,8 @@ class Player(pygame.sprite.Sprite):
             if keys[pygame.K_RETURN]:
                 collided_interaction_sprite = pygame.sprite.spritecollide(self,self.interaction,False)
                 if collided_interaction_sprite:
-                    if collided_interaction_sprite[0].name == 'Trader':
-                        self.toggle_shop()
-                    else:
-                        self.status = 'left_idle'
-                        self.sleep = True
+                    self.status = 'left_idle'
+                    self.sleep = True
 
     def get_status(self):
         # Check if tool use is active first, as it should take priority
