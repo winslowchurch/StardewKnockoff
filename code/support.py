@@ -15,7 +15,6 @@ def import_folder(path):
 
     return surface_list
 
-
 def import_folder_dict(path):
     surface_dict = {}
 
