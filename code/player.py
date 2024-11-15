@@ -124,10 +124,16 @@ class Player(pygame.sprite.Sprite):
 
             # Tool use
             if mouse_buttons[0]:
-                # run timer for tool use
-                self.timers['tool use'].activate()
-                self.direction = pygame.math.Vector2()
-                self.frame_index = 0
+                # if by bed, sleep, otherwise activate tool or whatever
+                collided_interaction_sprite = pygame.sprite.spritecollide(self,self.interaction,False)
+                if collided_interaction_sprite:
+                    self.status = 'left_idle'
+                    self.sleep = True
+                else:
+                    # run timer for tool use
+                    self.timers['tool use'].activate()
+                    self.direction = pygame.math.Vector2()
+                    self.frame_index = 0
 
             # Change tool
             if keys[pygame.K_TAB] and not self.timers['tool switch'].active:
@@ -141,12 +147,6 @@ class Player(pygame.sprite.Sprite):
                 self.timers['seed use'].activate()
                 self.direction = pygame.math.Vector2()
                 self.frame_index = 0
-
-            if keys[pygame.K_RETURN]:
-                collided_interaction_sprite = pygame.sprite.spritecollide(self,self.interaction,False)
-                if collided_interaction_sprite:
-                    self.status = 'left_idle'
-                    self.sleep = True
 
     def get_status(self):
         # Check if tool use is active first, as it should take priority
