@@ -2,6 +2,10 @@ import pygame, sys
 from settings import *
 from level import Level
 
+# TO DO
+# Change background + tilesets
+# Understand that whole data folder
+
 class Game:
 	def __init__(self):
 		pygame.init()
