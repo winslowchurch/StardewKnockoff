@@ -31,5 +31,5 @@ LAYERS = {
 }
 
 GROW_SPEED = {
-	'tomato': 0.7
+	'tomato': 1
 }
