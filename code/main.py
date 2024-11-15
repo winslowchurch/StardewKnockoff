@@ -3,7 +3,7 @@ from settings import *
 from level import Level
 
 # TO DO
-# Change background + tilesets
+# Change background
 # Understand that whole data folder
 
 class Game:

@@ -35,9 +35,9 @@ class Level:
 		# music
 		self.success = pygame.mixer.Sound('../audio/success.wav')
 		self.success.set_volume(0.5)
-		# self.music = pygame.mixer.Sound('../audio/music.mp3')
-		# self.music.play(loops=-1)
-		# self.music.set_volume(0.5)
+		self.music = pygame.mixer.Sound('../audio/music.mp3')
+		self.music.play(loops=-1)
+		self.music.set_volume(0.5)
 
 
 	def setup(self):
