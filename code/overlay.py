@@ -15,5 +15,5 @@ class Overlay:
         # Display selected tool or seed
         selected_item = self.player.selected_tool if self.player.selected_tool else self.player.selected_seed
         item_surf = self.items_surf[selected_item]
-        item_rect = item_surf.get_rect(midbottom=OVERLAY_POSITIONS['tool'])  # Use single position
+        item_rect = item_surf.get_rect(midbottom=OVERLAY_POSITIONS['tool'])
         self.display_surface.blit(item_surf, item_rect)

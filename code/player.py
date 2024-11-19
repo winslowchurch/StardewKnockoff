@@ -110,22 +110,21 @@ class Player(pygame.sprite.Sprite):
 
             # Use selected tool/seed
             if mouse_buttons[0]:
-                # if by bed, sleep, otherwise activate tool or whatever
-                collided_interaction_sprite = pygame.sprite.spritecollide(self,self.interaction,False)
-                if collided_interaction_sprite:
-                    self.status = 'left_idle'
-                    self.sleep = True
-                else:
-                    # run timer for tool use
-                    self.timers['tool use'].activate()
-                    self.direction = pygame.math.Vector2()
-                    self.frame_index = 0
+                # run timer for tool use
+                self.timers['tool use'].activate()
+                self.direction = pygame.math.Vector2()
+                self.frame_index = 0
 
             # Change tool/seed
             if keys[pygame.K_TAB] and not self.timers['tool switch'].active:
                 self.timers['tool switch'].activate()
                 self.inventory_index = (self.inventory_index + 1) % len(self.inventory)
                 self.selected_tool = self.inventory[self.inventory_index]
+
+            # Spacebar to sleep
+            if keys[pygame.K_SPACE] and not self.timers['tool switch'].active:
+                self.status = 'left_idle'
+                self.sleep = True
 
     def get_status(self):
         # Action animation

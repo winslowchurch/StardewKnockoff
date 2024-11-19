@@ -49,7 +49,7 @@ class Level:
 		for x, y, surf in tmx_data.get_layer_by_name('Water').tiles():
 			Water((x * TILE_SIZE, y * TILE_SIZE), water_frames, self.all_sprites)
 
-		# Wildflowers
+		# Grass decorations
 		for obj in tmx_data.get_layer_by_name('Decoration'):
 			WildFlower((obj.x, obj.y), obj.image, [self.all_sprites, self.collision_sprites])
 
@@ -105,11 +105,9 @@ class Level:
 					Particle(plant.rect.topleft, plant.image, self.all_sprites, z=LAYERS['main'])
 					self.soil_layer.grid[plant.rect.centery // TILE_SIZE][plant.rect.centerx // TILE_SIZE].remove('P')
 
-
 	def run(self,dt):
-		# drawing logic
+		# drawing
 		self.display_surface.fill('black')
-		# self.all_sprites.draw(self.display_surface)
 		self.all_sprites.custom_draw(self.player)
 		self.all_sprites.update(dt)
 		self.plant_collision()
