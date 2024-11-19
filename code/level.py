@@ -44,15 +44,6 @@ class Level:
 		# Map objects setup
 		tmx_data = load_pygame('../data/map.tmx')
 
-		# House
-		for layer in ['HouseFloor', 'HouseFurnitureBottom']:
-			for x, y, surf in  tmx_data.get_layer_by_name(layer).tiles():
-				Generic((x * TILE_SIZE, y * TILE_SIZE), surf, self.all_sprites, LAYERS['house bottom'])
-
-		for layer in ['HouseWalls', 'HouseFurnitureTop']:
-			for x, y, surf in  tmx_data.get_layer_by_name(layer).tiles():
-				Generic((x * TILE_SIZE, y * TILE_SIZE), surf, self.all_sprites)
-
 		# Water
 		water_frames = import_folder('../graphics/water')
 		for x, y, surf in tmx_data.get_layer_by_name('Water').tiles():
