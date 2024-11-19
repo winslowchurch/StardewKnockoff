@@ -4,9 +4,6 @@
  <tile id="0">
   <image width="64" height="60" source="../../graphics/objects/bush.png"/>
  </tile>
- <tile id="1">
-  <image width="56" height="68" source="../../graphics/objects/girlfriend.png"/>
- </tile>
  <tile id="4">
   <image width="56" height="112" source="../../graphics/objects/bigflower.png"/>
  </tile>
