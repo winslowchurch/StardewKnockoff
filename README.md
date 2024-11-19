@@ -1,5 +1,6 @@
 # Stardew Knockoff ⭐️
 This is a pixelated 2D python game with the same gameplay as Stardew Valley
+She's not perfect but she is a good baseline for pygames! 
 
 # How to run
 - Make sure pygame, pytmx are installed
