@@ -53,10 +53,6 @@ class Level:
 			for x, y, surf in  tmx_data.get_layer_by_name(layer).tiles():
 				Generic((x * TILE_SIZE, y * TILE_SIZE), surf, self.all_sprites)
 
-		# Fence
-		for x, y, surf in  tmx_data.get_layer_by_name('Fence').tiles():
-			Generic((x * TILE_SIZE, y * TILE_SIZE), surf, [self.all_sprites, self.collision_sprites])
-
 		# Water
 		water_frames = import_folder('../graphics/water')
 		for x, y, surf in tmx_data.get_layer_by_name('Water').tiles():
