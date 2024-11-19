@@ -128,7 +128,7 @@ class Player(pygame.sprite.Sprite):
                 self.selected_tool = self.inventory[self.inventory_index]
 
     def get_status(self):
-        # Tool use animation
+        # Action animation
         if self.timers['tool use'].active:
             self.status = self.status.split('_')[0] + '_action'
         # Idle if no movement
